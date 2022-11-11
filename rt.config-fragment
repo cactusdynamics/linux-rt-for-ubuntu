@@ -1,0 +1,30 @@
+# Enables PREEMPT_RT
+CONFIG_PREEMPT_RT=y
+
+# If there is a single task running on a single core that's not doing syscall,
+# NO_HZ_FULL will disable process accounting interruption for this process (?)
+# That said, there is a timer that causes a kernel task to wake up every 1
+# second to do some process-level accounting.
+#
+# TODO: the above description needs to be checked.
+CONFIG_NO_HZ_FULL=y
+
+# TODO: Document why these are selected
+CONFIG_HZ_1000=y
+# CONFIG_AUFS_FS is not set
+
+# TODO: Document why these are selected
+CONFIG_LOCKUP_DETECTOR=n
+CONFIG_DETECT_HUNG_TASK=n
+
+# Disable certificates for building
+# CONFIG_TRUSTED_KEYS is not set
+# CONFIG_SYSTEM_TRUSTED_KEYS is not set
+# CONFIG_SYSTEM_REVOCATION_LIST is not set
+
+# Enable more tracer in ftrace
+# Disabled for now as documentation says overhead increases in the kernel, but
+# I'm not sure if overhead increases even if these are not enabled dynamically,
+# only compiled in statically.
+# CONFIG_IRQSOFF_TRACER=y
+# CONFIG_PREEMPT_TRACER=y

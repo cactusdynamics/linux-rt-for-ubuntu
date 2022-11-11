@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch:
+
+name: build-linux-rt
+
+jobs:
+  build:
+    runs-on: [self-hosted]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: build kernel
+        run: ./run.sh
