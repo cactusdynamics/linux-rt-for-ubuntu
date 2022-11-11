@@ -11,3 +11,12 @@ jobs:
 
       - name: build kernel
         run: ./run.sh
+
+      - name: check built kernel
+        run: ls -lh debs
+
+      - name: Upload kernel as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: kernel debian packages
+          path: debs

@@ -16,4 +16,5 @@ trap cleanup EXIT INT TERM
 
 docker run --name $container_name $image_name
 docker cp $container_name:/workspace/debs .
-ls -lh debs
+cd debs
+sha256sum *.deb > checksum.sha256sum
